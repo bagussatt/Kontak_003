@@ -24,7 +24,13 @@ class DataKontak extends StatelessWidget {
             emailF: email,
             noTlpnF: notlp,
             alamatF: alamat,
-          ), FooterKontak()],
+          ), FooterKontak(
+            formKeyF: formKey,
+            namaF: nama,
+            emailF: email,
+            noTlpnF: notlp,
+            alamatF: alamat,
+          )],
         ),
       ),
     );

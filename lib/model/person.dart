@@ -6,11 +6,13 @@ class Person {
   final String email;
   final String alamat;
   final String tlp;
+  final String foto;
   Person({
     required this.nama,
     required this.email,
     required this.alamat,
     required this.tlp,
+    required this.foto,
   });
 
   Person copyWith({
@@ -18,12 +20,14 @@ class Person {
     String? email,
     String? alamat,
     String? tlp,
+    String? foto,
   }) {
     return Person(
       nama: nama ?? this.nama,
       email: email ?? this.email,
       alamat: alamat ?? this.alamat,
       tlp: tlp ?? this.tlp,
+      foto: foto ?? this.foto,
     );
   }
 
@@ -33,6 +37,7 @@ class Person {
       'email': email,
       'alamat': alamat,
       'tlp': tlp,
+      'foto': foto,
     };
   }
 
@@ -42,16 +47,18 @@ class Person {
       email: map['email'] as String,
       alamat: map['alamat'] as String,
       tlp: map['tlp'] as String,
+      foto: map['foto'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Person.fromJson(String source) => Person.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Person.fromJson(String source) =>
+      Person.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'Person(nama: $nama, email: $email, alamat: $alamat, tlp: $tlp)';
+    return 'Person(nama: $nama, email: $email, alamat: $alamat, tlp: $tlp, foto: $foto)';
   }
 
   @override
@@ -62,7 +69,8 @@ class Person {
       other.nama == nama &&
       other.email == email &&
       other.alamat == alamat &&
-      other.tlp == tlp;
+      other.tlp == tlp &&
+      other.foto == foto;
   }
 
   @override
@@ -70,6 +78,7 @@ class Person {
     return nama.hashCode ^
       email.hashCode ^
       alamat.hashCode ^
-      tlp.hashCode;
+      tlp.hashCode ^
+      foto.hashCode;
   }
 }
