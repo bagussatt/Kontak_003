@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum5/controller/kontak_controller.dart';
 import 'package:praktikum5/model/person.dart';
+import 'package:praktikum5/screen/data_kontak.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -46,7 +47,14 @@ class _HomeViewState extends State<HomeView> {
               );
             }
           },
+          
         ),
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const DataKontak()));
+          },
+          child: const Icon(Icons.add),
+        ));
   }
 }
