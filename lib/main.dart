@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:praktikum5/screen/data_kontak.dart';
+import 'package:praktikum5/screen/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const DataKontak(),
+      home: const HomeView(),
     );
   }
 }

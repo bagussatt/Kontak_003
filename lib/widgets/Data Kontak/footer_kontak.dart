@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:praktikum5/model/person.dart';
 import 'package:praktikum5/controller/kontak_controller.dart';
+import 'package:praktikum5/screen/home_view.dart';
 
 class FooterKontak extends StatefulWidget {
   const FooterKontak({super.key, required this.formKeyF, required this.namaF, required this.emailF, required this.alamatF, required this.noTlpnF});
@@ -55,24 +56,37 @@ class _FooterKontakState extends State<FooterKontak> {
         SizedBox(
           height: 20,
         ),
-       Container(
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(onPressed: () async {
-                  if (widget.formKeyF.currentState!.validate()) {
-                    var result = await KontakController().addPerson(
-                      Person(
-                        nama: widget.namaF.text,
-                        email: widget.emailF.text,
-                        alamat: widget.alamatF.text,
-                        tlp: widget.noTlpnF.text,
-                        foto: _image!.path
-                      ),
-                      _image,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result['message'],),),);
-                  }
-                }, child: Text("Simpan")),
-              )
+     Container(
+              margin: const EdgeInsets.all(10),
+              child: ElevatedButton(
+                  onPressed: () async {
+                    if (widget.formKeyF.currentState!.validate()) {
+                      var result = await KontakController().addPerson(
+                        Person(
+                            nama: widget.namaF.text,
+                            email: widget.emailF.text,
+                            alamat: widget.alamatF.text,
+                            tlp: widget.noTlpnF.text,
+                            foto: _image!.path),
+                        _image,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            result['message'],
+                          ),
+                        ),
+                      );
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()),
+                        (route) => false,
+                      );
+                    }
+                  },
+                  child: const Text("Simpan")),
+            ),
       ],
     );
   }
