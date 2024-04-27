@@ -55,6 +55,11 @@ class _FormKontakState extends State<FormKontak> {
                 decoration: InputDecoration(
                     labelText: "No Telepon", hintText: "Masukkan No HP"),
               ),
+            ),
+            Container(
+              child: TextFormField(
+                decoration: InputDecoration(labelText: "keterangan", hintText: "Silahkan Masukan Note yang anda inginkan"),
+              ),
             )
           ],
         ),
