@@ -32,6 +32,9 @@ dependencies:
   http: ^1.2.1
   image_picker: ^1.0.7
   path: ^1.9.0
+  geocoding: ^2.0.4
+  geolocator: ^9.0.2
+  google_maps_flutter: ^2.2.3
   convert:
 
   # The following adds the Cupertino Icons font to your application.
